@@ -487,5 +487,59 @@ header .inner .nav .gnb li a.depth-01 {}
 }
 .footer .inner .info_wrap .service_wrap .sns li {}
 .footer .inner .info_wrap .service_wrap .sns li a {}
-.footer .inner .info_wrap .service_wrap .sns li a img {}
+.footer .inner .info_wrap .service_wrap .sns li a img {
+}
 
+.footer .inner .footer_nav {}
+.footer .inner .footer_nav .gnb {
+    display: flex;
+    gap: 112px;
+}
+.footer .inner .footer_nav .gnb > li {}
+.footer .inner .footer_nav .gnb > li .depth-01 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer .inner .footer_nav .gnb > li .depth-02 {}
+.footer .inner .footer_nav .gnb > li .depth-02 li {
+    margin-top: 10px;
+}
+.footer .inner .footer_nav .gnb > li .depth-02 li a {}
+
+@media screen and (max-width: 1310px) {
+    footer .inner {
+        flex-direction: column;
+        /* 강제로 세로로 정렬 */
+    }
+    .footer .inner .footer_nav {
+        order: -1; /* 부모인 inner가 flex를 사용했기때문에 자식인 nav가 order를 사용할 수 있음 */
+        margin-bottom: 40px;
+    }
+}/* 1310: 부터 푸터가 무너지므로 */
+
+@media screen and (max-width: 1024px) {
+    .section-02 .list {
+        flex-direction: column;  
+    }
+    .section-02 .list .item {
+        width: 100%;
+    }
+    .section-02 .list .item a{
+        padding-bottom: 0;
+    }
+    .section-02 .list .item a img {
+        position: static; /* absolute적용안되도록  */
+    }
+}/* 1024 */
+
+@media screen and (max-width: 768px) {
+    .header .inner,
+    .footer .inner {
+        width: calc(100% - 32px); /* 모바일 좌우 마진16*2 */
+    }
+    .main .inner {
+        width: calc(100% -32px);
+    }
+
+/* 768: 부터 반응형이 깨지므로 */}
