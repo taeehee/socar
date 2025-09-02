@@ -88,7 +88,7 @@ header .inner .logo a {
 
 header .inner .logo a img {
     height: 100%;
-    display: block; /* ?? */
+    display: block; /* 이미지 아래 작은 여백 없애기위해 */
 }
 
 header .inner .menu_open {
@@ -182,6 +182,7 @@ header .inner .nav .gnb li a.depth-01 {}
     font-size: 20px;
 }
 
+
 /* section-01 */
 .section-01 {
     padding: 160px 0 96px;
@@ -200,7 +201,7 @@ header .inner .nav .gnb li a.depth-01 {}
     height: 524px;
     position: relative;
     border-radius: 16px;
-    overflow: hidden; /* radius삐져나가는것 숨김? */
+    overflow: hidden; /* radius삐져나가는것 숨김 */
     display: none; /* 기본: 모든 item 숨김 */
 }
 
@@ -281,10 +282,8 @@ header .inner .nav .gnb li a.depth-01 {}
     justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 36px;
-    
-    
-
 }
+
 .section-02 .inner .list .item {
      width: 48.22%; /* 488 / 1012 * 100 = 48.22%*/
      border-radius: 16px;
@@ -293,9 +292,6 @@ header .inner .nav .gnb li a.depth-01 {}
 
 .section-02 .list .item:hover a::before {
     display: block;
-    width: 0;
-    height: 0;
-    /* background-color: ; ?? */
 }
 
 .section-02 .list .item a {
@@ -310,13 +306,12 @@ header .inner .nav .gnb li a.depth-01 {}
     content: '';
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.5); /* 적용?? */
+    background-color: rgb(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     display: none; /* 호버 전: 효과 숨김 */
-
 }
 
 .section-02 .list .item a > img {
@@ -339,7 +334,6 @@ header .inner .nav .gnb li a.depth-01 {}
     display: flex;
     flex-direction: column; /* 수직수평방향이 바뀜 */
     justify-content: space-between;
-    
 }
 
 .section-02 .list .item a .text_wrap .text {
@@ -380,6 +374,7 @@ header .inner .nav .gnb li a.depth-01 {}
     height: 250px;
     position: relative;
 }
+
 .section-03 a::before {
     /* 가상요소 선택자 추가 (딤드효과) */
     content: '';
@@ -432,11 +427,11 @@ header .inner .nav .gnb li a.depth-01 {}
 .footer .inner {
     padding: 64px 0 96px;
     font-size: 15px;
-}
-.footer .inner .info_wrap {
     display: flex;
     justify-content: space-between;
 }
+
+.footer .inner .info_wrap {}
 .footer .inner .info_wrap .address {}
 .footer .inner .info_wrap .address .footer_logo {
     font-size: 20px;
@@ -452,6 +447,7 @@ header .inner .nav .gnb li a.depth-01 {}
 .footer .inner .info_wrap .address ul li {
     position: relative
 }
+
 .footer .inner .info_wrap .address ul li::before {
     /* 가상요소 추가 */
     content: '';
@@ -463,20 +459,21 @@ header .inner .nav .gnb li a.depth-01 {}
     left: -10px;
     transform: translateY(-50%);
 }
+
 .footer .inner .info_wrap .address ul li:first-child::before{
     display: none; /* 첫번째 li앞에 구분선 없음 */
 }
 
 .footer .inner .info_wrap .address ul li a {}
-
 .footer .inner .info_wrap .service_wrap {
     margin-top: 48px;
 }
+
 .footer .inner .info_wrap .service_wrap .service {
     display: flex;
     gap: 38px;
-
 }
+
 .footer .inner .info_wrap .service_wrap .service li {}
 .footer .inner .info_wrap .service_wrap .service li a {}
 
@@ -485,27 +482,32 @@ header .inner .nav .gnb li a.depth-01 {}
     gap: 10px;
     margin-top: 56px;
 }
+
 .footer .inner .info_wrap .service_wrap .sns li {}
 .footer .inner .info_wrap .service_wrap .sns li a {}
-.footer .inner .info_wrap .service_wrap .sns li a img {
-}
-
+.footer .inner .info_wrap .service_wrap .sns li a img {}
 .footer .inner .footer_nav {}
+
 .footer .inner .footer_nav .gnb {
     display: flex;
     gap: 112px;
 }
+
 .footer .inner .footer_nav .gnb > li {}
+
 .footer .inner .footer_nav .gnb > li .depth-01 {
     font-size: 20px;
     font-weight: bold;
 }
 
 .footer .inner .footer_nav .gnb > li .depth-02 {}
+
 .footer .inner .footer_nav .gnb > li .depth-02 li {
     margin-top: 10px;
 }
+
 .footer .inner .footer_nav .gnb > li .depth-02 li a {}
+
 
 @media screen and (max-width: 1310px) {
     footer .inner {
@@ -517,6 +519,7 @@ header .inner .nav .gnb li a.depth-01 {}
         margin-bottom: 40px;
     }
 }/* 1310: 부터 푸터가 무너지므로 */
+
 
 @media screen and (max-width: 1024px) {
     .section-02 .list {
@@ -533,6 +536,7 @@ header .inner .nav .gnb li a.depth-01 {}
     }
 }/* 1024 */
 
+
 @media screen and (max-width: 768px) {
     .header .inner,
     .footer .inner {
@@ -541,5 +545,4 @@ header .inner .nav .gnb li a.depth-01 {}
     .main .inner {
         width: calc(100% -32px);
     }
-
 /* 768: 부터 반응형이 깨지므로 */}
