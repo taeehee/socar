@@ -1,0 +1,491 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 버튼값 초기화 */
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+/* 공통적인 스타일 먼저 정리해준다! */
+
+body {
+    background-color: #141A24;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.header .inner,
+.footer .inner {
+    max-width: 1536px;
+    /* 헤더,푸터 컨테이너 너비 */
+    width: calc(100% - 96px);
+    /* 태블릿크기에서 좌우마진 48*2 */
+    margin: 0 auto;
+}
+
+.main .inner {
+    max-width: 1012px;
+    /* 메인 컨테이너 너비 */
+    width: calc(100% - 96px);
+    /* 태블릿크기에서 좌우마진 48*2 */
+    margin: 0 auto;
+}
+
+.main .inner h3 {
+    font-size: 37px;
+    margin-bottom: 96px;
+}
+
+.main .inner h3 strong {
+    display: block; /* 줄바꿈 */
+}
+
+header {
+    width: 100%;
+    /*  */
+    height: 72px;
+    position: absolute;
+    /* 메인비주얼 위에 헤더 올리기 */
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    /* 숫자 클수록 앞에 배치 */
+}
+
+header .inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* h값이 있어야 세로정렬됨  */
+}
+
+header .inner .logo {
+    height: 36px;
+    /* (피그마에서 36으로 지정해서) */
+}
+
+header .inner .logo a {
+    display: block;
+    /* a는 인라인태그이므로 */
+    height: 100%;
+}
+
+header .inner .logo a img {
+    height: 100%;
+    display: block; /* ?? */
+}
+
+header .inner .menu_open {
+    height: 29px;
+}
+
+header .inner .menu_open img {
+    height: 100%;
+}
+
+header .inner .nav {
+    display: none;
+    /* 기본적으로 숨김 */
+}
+
+header .inner .nav .menu_close {}
+header .inner .nav .menu_close img {}
+header .inner .nav .gnb {}
+header .inner .nav .gnb li {}
+header .inner .nav .gnb li a.depth-01 {}
+
+
+/* main_visual */
+
+.main_visual {
+    height: 100vh;
+    /* 브라우저 높이만큼 */
+    position: relative;
+}
+
+.main_visual video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main_visual .text {
+    width: 100%;
+    /* 반응형에 따라 텍스트도 변화시키기위해 text너비값 화면 채워주기 */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* left:50%->0, translate(-50)->0 으로 바꿔준 이유: 반응형에 따라 텍스트도 변화시키기위해*/
+    transform: translate(0, -50%);
+    text-align: center;
+}
+
+.main_visual .text h2 {
+    font-size: 95px;
+}
+
+.main_visual .text p {
+    font-size: 40px;
+}
+
+.main_visual .visual_btn {
+    max-width: 1536px;
+    width: calc(100% - 96px);
+    /* margin: 0 auto; 포지션쓰면 마진0 auto 적용X */
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    transform: translate(-50%);
+    /* background-color: #000000; 확인용 */
+    display: flex;
+    /* justify-content 쓰기위해 */
+    justify-content: flex-end;
+    /* 오른쪽 정렬 */
+}
+
+.main_visual .visual_btn a {
+    width: 288px;
+    height: 72px;
+    background-color: #0078FF;
+    display: block;
+    /* a는 인라인태그이므로 */
+    border-radius: 10px;
+    display: flex;
+    /* justify-content 쓰기위해 */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.main_visual .visual_btn a img {
+    width: 18px;
+    /* 로고, 아이콘 이미지는 w,h 한쪽만 써서 자동으로 맞춰지게 한다. */
+}
+
+.main_visual .visual_btn a span {
+    font-size: 20px;
+}
+
+/* section-01 */
+.section-01 {
+    padding: 160px 0 96px;
+    /* 상하 패딩, 좌우0 */
+}
+
+.section-01 .inner {}
+.section-01 .inner h3 {}
+.section-01 .inner .slides {
+    position: relative;
+}
+.section-01 .inner .slides .list {}
+
+.section-01 .inner .slides .list .item {
+    width: 100%;
+    height: 524px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden; /* radius삐져나가는것 숨김? */
+    display: none; /* 기본: 모든 item 숨김 */
+}
+
+.section-01 .inner .slides .list .item.active{
+    display: block; /* item active만 나타남 */
+}
+
+.section-01 .inner .slides .list .item::before {
+    /* 가상요소 선택자 before */
+    content: '';
+    width: 100%;
+    height: 100%;
+    /* 그라디언트 io접속해서 값 복붙 */
+    background: #000000;
+    background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 60%);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.section-01 .inner .slides .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.section-01 .inner .slides .list .item .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 48px;
+}
+
+.section-01 .inner .slides .list .item .text strong {
+    font-size: 33px;
+}
+
+.section-01 .inner .slides .item .text p {
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+.section-01 .inner .slides .slide_navigation button {
+    position: absolute;
+    width: 49px;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section-01 .inner .slides .slide_navigation button img {
+    width: 100%;
+}
+
+.section-01 .inner .slides .slide_navigation .next {
+    right: 30px;
+}
+
+.section-01 .inner .slides .slide_navigation .prev {
+    left: 30px;
+}
+
+
+/* section-02 */
+.section-02 {
+    padding: 160px 0; /* 상하160 */
+}
+.section-02 .inner {
+
+}
+.section-02 .inner h3 {}
+.section-02 .inner strong {}
+
+.section-02 .inner .list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 36px;
+    
+    
+
+}
+.section-02 .inner .list .item {
+     width: 48.22%; /* 488 / 1012 * 100 = 48.22%*/
+     border-radius: 16px;
+     overflow: hidden;
+}
+
+.section-02 .list .item:hover a::before {
+    display: block;
+    width: 0;
+    height: 0;
+    /* background-color: ; ?? */
+}
+
+.section-02 .list .item a {
+    display: block; /* a태그는 인라인태그이므로 */
+    padding-bottom: 132.58%; 
+    /* (세로647/가로488)*100 값을 패딩값으로 설정 */
+    position: relative;
+}
+
+.section-02 .list .item a::before {
+    /* 가상요소 선택자 추가 */
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5); /* 적용?? */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none; /* 호버 전: 효과 숨김 */
+
+}
+
+.section-02 .list .item a > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.section-02 .list .item a .text_wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 32px;
+    background-color: hsl(264, 63%, 63% 0.688); /* 영역확인 후 w,h값 설정 */
+    display: flex;
+    flex-direction: column; /* 수직수평방향이 바뀜 */
+    justify-content: space-between;
+    
+}
+
+.section-02 .list .item a .text_wrap .text {
+    
+}
+.section-02 .list .item a .text_wrap .text strong {
+    font-size: 33px;
+}
+.section-02 .list .item a .text_wrap .text p {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.section-02 .list .item a .text_wrap .item_btn {
+    display: flex;
+    justify-content: flex-end; /* 우측정렬 */
+}
+
+.section-02 .list .item a .text_wrap .item_btn img {
+    
+}
+.section-02 .list .item a .text_wrap .item_btn img.before {}
+.section-02 .list .item a .text_wrap .item_btn img.after {
+    display: none; /* 호버했을때: 숨김 */
+}
+.section-02 .list .item:hover .text_wrap .item_btn img.before {
+    display: none;
+}
+.section-02 .list .item:hover .text_wrap .item_btn img.after {
+    display: block;
+    z-index: 2;
+}
+
+
+/* section-03 */
+
+.section-03 {
+    height: 250px;
+    position: relative;
+}
+.section-03 a::before {
+    /* 가상요소 선택자 추가 (딤드효과) */
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.section-03 a > img { /* a태그 바로 아래 img만. */
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-03 a .text_wrap {
+    width: 100%;
+    position: absolute; /* 부모선택자인 a 또는 섹션-03에 포지션:relative */
+    top:50%;
+    left: 0%;
+    transform: translateY(-50%); /* 영역이 좁아서 가운데 정렬이 안되므로 w값을 설정해준다 */
+    text-align: center; /* 텍스트가운데정렬 */
+    display: flex;
+    flex-direction: column; /* 수직수평방향이 바뀜  */
+    align-items: center; /* 가로 가운데정렬이 됨 */
+}
+
+.section-03 a .text_wrap strong {
+    font-size: 33px;
+}
+
+.section-03 a .text_wrap .btn {
+    height: 75px;
+    border: 1px solid #fff;
+    padding: 0 31px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.section-03 a .text_wrap .btn span {
+    font-size: 20px;
+}
+
+.footer .inner {
+    padding: 64px 0 96px;
+    font-size: 15px;
+}
+.footer .inner .info_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.footer .inner .info_wrap .address {}
+.footer .inner .info_wrap .address .footer_logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer .inner .info_wrap .address ul {
+    display: flex;
+    gap: 20px;
+    row-gap: 10px;
+}
+
+.footer .inner .info_wrap .address ul li {
+    position: relative
+}
+.footer .inner .info_wrap .address ul li::before {
+    /* 가상요소 추가 */
+    content: '';
+    width: 1px;
+    height: 15px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+}
+.footer .inner .info_wrap .address ul li:first-child::before{
+    display: none; /* 첫번째 li앞에 구분선 없음 */
+}
+
+.footer .inner .info_wrap .address ul li a {}
+
+.footer .inner .info_wrap .service_wrap {
+    margin-top: 48px;
+}
+.footer .inner .info_wrap .service_wrap .service {
+    display: flex;
+    gap: 38px;
+
+}
+.footer .inner .info_wrap .service_wrap .service li {}
+.footer .inner .info_wrap .service_wrap .service li a {}
+
+.footer .inner .info_wrap .service_wrap .sns {
+    display: flex;
+    gap: 10px;
+    margin-top: 56px;
+}
+.footer .inner .info_wrap .service_wrap .sns li {}
+.footer .inner .info_wrap .service_wrap .sns li a {}
+.footer .inner .info_wrap .service_wrap .sns li a img {}
+
